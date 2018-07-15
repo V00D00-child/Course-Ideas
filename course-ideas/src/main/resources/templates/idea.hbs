@@ -1,0 +1,24 @@
+{{#partial "content"}}
+    <!--Call the get methods for the CourseIdea Object-->
+    <h1> {{idea.title}} </h1>
+    <h2>{{ idea.voteCount}} Voters</h2>
+
+    <!--loop through each voter for CourseIdea. Note: use this to reference current voter-->
+    <ul>
+        {{#each idea.voters }}
+            <li>{{ this}}</li>
+        {{/each}}
+    </ul>
+
+    <!--Allow users to vote while on this page-->
+    <form action="/ideas/{{ idea.slug }}/vote" method="post">
+        <button>Vote</button>
+    </form>
+
+{{/partial}}
+
+{{#partial "title"}}
+    Course Idea - {{ idea.title}}
+{{/partial}}
+
+{{> base.hbs}}

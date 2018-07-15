@@ -1,0 +1,25 @@
+{{#partial "content"}}
+    <h1>Current Ideas</h1>
+
+    <ul>
+        <!--for each item get the course title-->
+        {{#each ideas}}
+            <li>
+                <form action="/ideas/{{ slug }}/vote" method="post">
+
+                    <!--add a link that links to the ideaDetails page-->
+                    <a href="/ideas/{{ slug }}">{{ title }}</a> ( {{ voteCount }} votes ) <button>Vote</button>
+                </form>
+            </li>
+        {{/each}}
+    </ul>
+    <!--create a form to add a new idea-->
+    <form action="/ideas" method="post">
+        <input type="text"placeholder="What's you idea?" name="title">
+        <button>Suggest!</button> <!--handle this post in Main.java-->
+    </form>
+{{/partial}}
+
+
+
+{{> base.hbs}}
